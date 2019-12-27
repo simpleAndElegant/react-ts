@@ -1,12 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { Component, ComponentElement } from './react';
+import ReactDOM from './react-dom';
+interface Props {
+    title: string
+}
+class Welcome extends React.Component {
+    render () {
+        return React.createElement('h1', { className: 'title' }, this.props.title);
+    }
+}
+let element: ComponentElement<Props> = React.createElement<Props>(Welcome, { title: '标题' }) as ComponentElement<Props>;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render<Props>(element, document.getElementById('root') as HTMLElement);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
