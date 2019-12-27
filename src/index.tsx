@@ -1,4 +1,4 @@
-import React, { Component, ComponentElement } from './react';
+import React, { Component, ComponentElement } from './lib/react';
 import ReactDOM from './react-dom';
 interface Props {
     title: string
