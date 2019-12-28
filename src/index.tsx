@@ -1,14 +1,9 @@
-import React, { Component, ComponentElement } from './lib/react';
-import ReactDOM from './react-dom';
-interface Props {
-    title: string
-}
-class Welcome extends React.Component {
-    render () {
-        return React.createElement('h1', { className: 'title' }, this.props.title);
-    }
-}
-let element: ComponentElement<Props> = React.createElement<Props>(Welcome, { title: '标题' }) as ComponentElement<Props>;
+import React,{ ReactElement} from './lib/react';
+import ReactDOM from './lib/react-dom'
+let style = {color: 'red', fontSize:'25px'}
 
-ReactDOM.render<Props>(element, document.getElementById('root') as HTMLElement);
+let element:ReactElement = React.createElement('h1',{
+    className: 'title',style
+},'hello','world')
 
+ReactDOM.render(element, document.getElementById('root')!)

@@ -6,10 +6,9 @@ import { ReactElement } from "./typings"
  * @param children 子元素
  * */
 export function createElement (type:string, config:Record<string,any>, ...children:Array<any>) {
-  let propName: string
   const props: Record<string,any> = {}
   // 将config上所有属性拷贝到 props上
-  for (const propName in props) {
+  for (const propName in config) {
     props[propName] = config[propName]
   }
   props.children = children
